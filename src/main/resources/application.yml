@@ -6,3 +6,6 @@ spring:
 springdoc:
   swagger-ui:
     path: /docs
+
+limites:
+  url: http://localhost:8081
