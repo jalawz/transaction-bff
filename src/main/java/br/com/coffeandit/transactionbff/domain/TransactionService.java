@@ -2,6 +2,7 @@ package br.com.coffeandit.transactionbff.domain;
 
 import br.com.coffeandit.transactionbff.dto.TransactionDto;
 import br.com.coffeandit.transactionbff.dto.TransactionRequestDto;
+import br.com.coffeandit.transactionbff.exception.UnauthorizedException;
 import br.com.coffeandit.transactionbff.redis.TransactionRedisRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
