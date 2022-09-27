@@ -38,6 +38,12 @@ dependencies {
 
 	// Open Feign
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.1.4'
+
+	// Circuit Breaker
+	implementation 'io.github.resilience4j:resilience4j-circuitbreaker:1.7.1'
+	implementation 'io.github.resilience4j:resilience4j-core:1.7.1'
+	implementation 'io.github.resilience4j:resilience4j-all:1.7.1'
+
 }
 
 tasks.named('test') {

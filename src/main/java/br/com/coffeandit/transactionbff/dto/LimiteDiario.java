@@ -1,6 +1,7 @@
 package br.com.coffeandit.transactionbff.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Builder
 public class LimiteDiario {
 
     private Long id;
