@@ -12,7 +12,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
@@ -45,12 +43,8 @@ public class TransactionController {
             @ApiResponse(responseCode = "404", description = "Recurso não encontrado.")
     })
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<TransactionDto> sendTransaction(@RequestBody final TransactionRequestDto transactionRequestDto) {
-        Optional<TransactionDto> transactionDto = transactionService.save(transactionRequestDto);
-        if (transactionDto.isPresent()) {
-            return Mono.just(transactionDto.get());
-        }
-        throw new NotFoundException("Unable to save resource");
+    public Mono<TransactionRequestDto> sendTransaction(@RequestBody final TransactionRequestDto transactionRequestDto) {
+        return transactionService.save(transactionRequestDto);
     }
 
     @Operation(description = "API para buscar os transações por id")

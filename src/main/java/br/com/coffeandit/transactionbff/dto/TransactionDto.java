@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,6 +21,7 @@ import java.util.UUID;
 @Setter
 @EqualsAndHashCode(of = "uuid")
 @RedisHash(value = "TransactionDto", timeToLive = 300)
+@ToString(of = {"uuid", "situacao"})
 public class TransactionDto {
 
     @Schema(description = "Código de identificação da transação")
