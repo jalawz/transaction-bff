@@ -2,15 +2,14 @@ package br.com.coffeandit.transactionbff.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@ToString
+@EqualsAndHashCode(callSuper = false)
 @Schema(description = "Objeto de transporte para o envio de uma promessa de transação")
 public class TransactionRequestDto extends TransactionDto {
 
@@ -18,5 +17,9 @@ public class TransactionRequestDto extends TransactionDto {
     private SituacaoEnum situacao;
     @JsonIgnore
     private LocalDateTime data;
+
+    public void naoAnalisada() {
+        setSituacao(SituacaoEnum.NAO_ANALISADA);
+    }
 
 }
